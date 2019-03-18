@@ -1,6 +1,6 @@
 %main.m
 % Main file to 'ctf2ang' - Conversion of ctf to ang 
-% -> Tested for Bruker to TSL
+% -> Tested for Bruker to TSL conversion
 % *************************************************************************
 % Dr. Frank Niessen, University of Wollongong, Australia, 2019
 % contactnospam@fniessen.com (remove the nospam to make this email address 
