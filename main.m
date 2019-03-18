@@ -36,8 +36,10 @@ fprintf(1,'ctf2ang - Fileconversion - (c) Frank Niessen DTU 05/2016\n');
 fprintf(1,'--------------------------------------------------------------\n\n');
 
 %% USER INPUT - declaration
-Ini.path =  cd;                                                             % Filepath
-Ini.name = 'demo';                                                          % Filename [Set to '*' for all files in path]
+Ini.path = fileparts(mfilename('fullpath'));                                % Filepath
+Ini.name = 'test';                                                          % Filename [Set to '*' for all files in path]
+Ini.InDir = 'data\Input - ctf';                                             % Input subdirectory
+Ini.OutDir = 'data\Output - ang';                                           % Input subdirectory
 Ini.PhaseNames = {'Austenite','Ferrite'};                                   % List of phases - Headerfiles of phases have to be saved in subfolder 'phases' and listed in ctf file
 Ini.PhaseNrs =   [1 2];                                                     % Corresponding PhaseNrs
 Ini.stepround = 1e-3;                                                       % Rounding dimension of stepsize
