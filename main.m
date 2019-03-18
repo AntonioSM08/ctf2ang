@@ -1,9 +1,14 @@
 %main.m
-%Conversion of ctf to ang -> optimized for use from Bruker to TSL
-% 
-% ang data format: [Euler1,Euler2,Euler3,X,Y,IQ,CI,phase,Edge,FIT]
-% ang IQ is equivalent to ctf BC
-% ang CI can be approximated by ctf BS
+% Main file to 'ctf2ang' - Conversion of ctf to ang 
+% -> Tested for Bruker to TSL
+% *************************************************************************
+% Dr. Frank Niessen, University of Wollongong, Australia, 2019
+% contactnospam@fniessen.com (remove the nospam to make this email address 
+% work)
+% *************************************************************************
+% ang column names: [Euler1,Euler2,Euler3,X,Y,IQ,CI,phase,Edge,FIT]
+% ang IQ is equivalent to 'ctf' BC
+% ang CI can be approximated by 'ctf' BS
 % Edge is not important - set to 1
 % ang FIT is equivalent to ctf MAD
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -20,23 +25,21 @@
 % folder.
 % 'Ini.stepround' is used to specify to which degree the x and y stepsize
 % should be rounded. Please see the screen output during execution to check
-% the degree of rounding. For any further questions please write to
-% <frannie@dtu.dk>
+% the degree of rounding.
 
 clear
 clc 
 close all
 
 fprintf(1,'--------------------------------------------------------------\n');
-fprintf(1,'ctf2ang - Fileconversion - (c) Frank Nieﬂen DTU 05/2016\n');
+fprintf(1,'ctf2ang - Fileconversion - (c) Frank Niessen DTU 05/2016\n');
 fprintf(1,'--------------------------------------------------------------\n\n');
 
 %% USER INPUT - declaration
-%Ini.path = pwd;                                                            % Filepath
-Ini.path =  cd;                               % Filepath
-Ini.name = 'demo';                                                           % Filename [Set to '*' for all files in path]
-Ini.PhaseNames = {'Austenite'};                                             % List of phases - Headerfiles of phases have to be saved in subfolder 'phases' and listed in ctf file
-Ini.PhaseNrs =   [0];                                                       % Corresponding PhaseNrs
+Ini.path =  cd;                                                             % Filepath
+Ini.name = 'demo';                                                          % Filename [Set to '*' for all files in path]
+Ini.PhaseNames = {'Austenite','Ferrite'};                                   % List of phases - Headerfiles of phases have to be saved in subfolder 'phases' and listed in ctf file
+Ini.PhaseNrs =   [1 2];                                                     % Corresponding PhaseNrs
 Ini.stepround = 1e-3;                                                       % Rounding dimension of stepsize
 
 %% Initialization
